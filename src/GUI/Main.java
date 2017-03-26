@@ -4,8 +4,8 @@ import Game.Game;
 import processing.core.*;
 
 public class Main extends PApplet {
-	final int FIELD_SIZE = 12;
-	final int MAX_SHIP_SIZE = 5;
+	final int FIELD_SIZE = 13;
+	final int MAX_SHIP_SIZE = 4;
 	final int TILE_SIZE = 54;
 
 	Game game = new Game(FIELD_SIZE, MAX_SHIP_SIZE);
@@ -15,7 +15,7 @@ public class Main extends PApplet {
 	}
 
 	public void settings() {
-		//setze die größe des fensters
+		// setze die größe des fensters
 		size(game.getSIZE() * TILE_SIZE, game.getSIZE() * TILE_SIZE + 4 * TILE_SIZE);
 	}
 
@@ -52,35 +52,37 @@ public class Main extends PApplet {
 		} else {
 			// gebe gewonnen aus
 			textAlign(CENTER, CENTER);
-			textSize(TILE_SIZE/2);
+			textSize(TILE_SIZE / 2);
 			fill(100);
 			text("Gewonnen!", game.getSIZE() * TILE_SIZE / 2, game.getSIZE() * TILE_SIZE + 2 * TILE_SIZE);
 		}
 		// gebe Versuche, Treffer, anzahl der schiffe aus
 		textAlign(CENTER, CENTER);
-		textSize(TILE_SIZE/2);
+		textSize(TILE_SIZE / 2);
 		fill(100);
 		text("Versuche: " + game.getTries(), game.getSIZE() * TILE_SIZE / 6, game.getSIZE() * TILE_SIZE + TILE_SIZE);
-		text("Treffer: " + game.getShipHits(), game.getSIZE() * TILE_SIZE / 6 * 3, game.getSIZE() * TILE_SIZE + TILE_SIZE);
-		text("Schiffe: " + game.getSHIP_FIELDS(), game.getSIZE() * TILE_SIZE / 6 * 5, game.getSIZE() * TILE_SIZE + TILE_SIZE);
+		text("Treffer: " + game.getShipHits(), game.getSIZE() * TILE_SIZE / 6 * 3,
+				game.getSIZE() * TILE_SIZE + TILE_SIZE);
+		text("Schiffe: " + game.getSHIP_FIELDS(), game.getSIZE() * TILE_SIZE / 6 * 5,
+				game.getSIZE() * TILE_SIZE + TILE_SIZE);
 
 		// setze den "neues spiel" button
 		fill(255, 140, 0);
-		rect((game.getSIZE() / 6 * 2) * (TILE_SIZE), game.getSIZE() * TILE_SIZE + 2 * TILE_SIZE + (TILE_SIZE / 2),
-				TILE_SIZE * 6, TILE_SIZE, 10);
+		rect(2 * (TILE_SIZE), game.getSIZE() * TILE_SIZE + 2 * TILE_SIZE + (TILE_SIZE / 2),
+				TILE_SIZE * (game.getSIZE() - 4), TILE_SIZE, 10);
 		textAlign(CENTER, CENTER);
-		textSize(TILE_SIZE/2);
+		textSize(TILE_SIZE / 2);
 		fill(100);
 		text("Neues Spiel", game.getSIZE() * TILE_SIZE / 2, game.getSIZE() * TILE_SIZE + 3 * TILE_SIZE);
-		
+
 		// eingabe button
 		buttonPressed();
 
 	}
-	
-	private void buttonPressed(){
+
+	private void buttonPressed() {
 		if (mousePressed) {
-			if (mouseX >= (game.getSIZE() / 6 * 2) * TILE_SIZE && mouseX < (game.getSIZE() / 6 * 2) * TILE_SIZE + TILE_SIZE * 6
+			if (mouseX >= 2 * (TILE_SIZE) && mouseX < TILE_SIZE * (game.getSIZE() - 2)
 					&& mouseY >= game.getSIZE() * TILE_SIZE + (TILE_SIZE / 2) + 2 * TILE_SIZE
 					&& mouseY < game.getSIZE() * TILE_SIZE + (TILE_SIZE / 2) + 3 * TILE_SIZE) {
 				// starte neues game
