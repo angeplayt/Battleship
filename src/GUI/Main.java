@@ -1,13 +1,12 @@
 package GUI;
 
 import Game.Game;
-import Game.Tools;
 import processing.core.*;
 
 public class Main extends PApplet {
 	final int FIELD_SIZE = 10;
 	final int MAX_SHIP_SIZE = 4;
-	final int TILE_SIZE = 60;
+	final int TILE_SIZE = 54;
 
 	Game game = new Game(FIELD_SIZE, MAX_SHIP_SIZE);
 
@@ -53,24 +52,24 @@ public class Main extends PApplet {
 		} else {
 			// gebe gewonnen aus
 			textAlign(CENTER, CENTER);
-			textSize(25);
+			textSize(TILE_SIZE/2);
 			fill(100);
 			text("Gewonnen!", game.getSIZE() * TILE_SIZE / 2, game.getSIZE() * TILE_SIZE + 2 * TILE_SIZE);
 		}
 		// gebe Versuche, Treffer, anzahl der schiffe aus
 		textAlign(CENTER, CENTER);
-		textSize(25);
+		textSize(TILE_SIZE/2);
 		fill(100);
 		text("Versuche: " + game.getTries(), game.getSIZE() * TILE_SIZE / 6, game.getSIZE() * TILE_SIZE + TILE_SIZE);
 		text("Treffer: " + game.getShipHits(), game.getSIZE() * TILE_SIZE / 6 * 3, game.getSIZE() * TILE_SIZE + TILE_SIZE);
 		text("Schiffe: " + game.getSHIP_FIELDS(), game.getSIZE() * TILE_SIZE / 6 * 5, game.getSIZE() * TILE_SIZE + TILE_SIZE);
 
-		// setze den "neues game" button
+		// setze den "neues spiel" button
 		fill(255, 140, 0);
 		rect((game.getSIZE() / 6 * 2) * (TILE_SIZE), game.getSIZE() * TILE_SIZE + 2 * TILE_SIZE + (TILE_SIZE / 2),
 				TILE_SIZE * 6, TILE_SIZE, 10);
 		textAlign(CENTER, CENTER);
-		textSize(25);
+		textSize(TILE_SIZE/2);
 		fill(100);
 		text("Neues Spiel", game.getSIZE() * TILE_SIZE / 2, game.getSIZE() * TILE_SIZE + 3 * TILE_SIZE);
 		
