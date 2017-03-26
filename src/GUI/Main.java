@@ -4,7 +4,7 @@ import Game.Game;
 import processing.core.*;
 
 public class Main extends PApplet {
-	final int FIELD_SIZE = 13;
+	final int FIELD_SIZE = 12;
 	final int MAX_SHIP_SIZE = 4;
 	final int TILE_SIZE = 54;
 
