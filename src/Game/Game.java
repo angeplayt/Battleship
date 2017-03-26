@@ -10,18 +10,6 @@ public class Game {
 	private final int SHIP_FIELDS;
 	private final int MAX_SHIP_SIZE;
 
-	public Game(int size) {
-		// TODO Auto-generated constructor stub
-		field = new int[size][size];
-		hit = new int[size][size];
-		this.SIZE = size;
-		initializeField(4);
-		tries = 0;
-		shipHits = 0;
-		this.MAX_SHIP_SIZE = 4;
-		SHIP_FIELDS = shipFields(4);
-	}
-
 	public Game(int SIZE, int MAX_SHIP_SIZE) {
 		field = new int[SIZE][SIZE];
 		hit = new int[SIZE][SIZE];
