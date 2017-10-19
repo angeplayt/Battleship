@@ -147,6 +147,7 @@ public class Game {
 		return true;
 	}
 	
+	//return the number of panels with ships on the field
 	private int shipFields(int shipSize){
 		int sum = 0;
 		for(int i = 1; i <= shipSize; i++) {
